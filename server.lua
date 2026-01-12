@@ -98,7 +98,6 @@ AddEventHandler("playerConnecting", function(name, setKickReason, deferrals)
 
         ExecuteCommand(REAPER_BAN_COMMAND .. " " .. src)
 
-        -- dynamicky kick message s dôvodom
         local kickMessage = KICK_MESSAGE_TEMPLATE:gsub("%%reason%%", bannedEntry.reason or "No reason")
         deferrals.done(KICK_TITLE .. "\n" .. kickMessage)
         CancelEvent()
@@ -116,3 +115,4 @@ RegisterCommand("bl_debug", function(source)
     print(json.encode(ids, { indent = true }))
 
 end, false)
+

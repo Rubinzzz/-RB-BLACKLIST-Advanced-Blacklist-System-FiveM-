@@ -27,7 +27,7 @@ local blacklist = {
         license  = "license:abcdef1234567890",
         license2 = "license2:abcdef1234567890",
         ip       = "127.0.0.1",
-        reason   = "Podezření na CHEATY"
+        reason   = "Cheating" -- Modifiable
     },
     {
         discord  = "discord:123456789012345678",
@@ -36,7 +36,7 @@ local blacklist = {
         license  = "license:zyxwv9876543210",
         license2 = "license2:zyxwv9876543210",
         ip       = "192.168.0.1",
-        reason   = "Exploiting"
+        reason   = "Exploiting" -- Modifiable
     },
     -- Add more BASTARDS to RB BLACKLIST!
 }
@@ -87,7 +87,7 @@ AddEventHandler("playerConnecting", function(name, setKickReason, deferrals)
     deferrals.defer()
     Wait(0)
 
-    -- Modifable
+    -- Modifiable
     deferrals.update("Checking blacklist...")
 
     local identifiers = GetPlayerIdentifiersTable(src)
@@ -114,4 +114,5 @@ end)
 RegisterCommand("bl_debug", function(source)
     local ids = GetPlayerIdentifiersTable(source)
     print(json.encode(ids, { indent = true }))
+
 end, false)
